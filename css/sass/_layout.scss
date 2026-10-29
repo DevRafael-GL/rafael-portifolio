@@ -1,3 +1,12 @@
+@use "colors" as *;
+
+// Intrinsic width/height attributes are set on every image to reserve layout
+// space; this keeps them scaling by ratio instead of using the literal height.
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 // MENU
 
 .menu {
@@ -7,6 +16,20 @@
   justify-content: space-between;
 
   padding: 3rem 6rem;
+}
+
+.menu-left {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-right {
+  display: flex;
+  gap: 20px;
+}
+
+.img-logo {
+  width: 35px;
 }
 
 .menu-mobile {
@@ -132,7 +155,7 @@
 
     img {
       max-width: 130px;
-      transform: translate(7px, 15px) scale(1);
+      transform: translate(8px, 16px) scale(1.2);
     }
   }
 
@@ -141,68 +164,22 @@
   }
 
   // TO TOP - SECTION ABOUT
-  a {
+  .to-top-link {
     display: none;
+
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 50;
   }
 
   .to-top {
     width: 40px;
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    font-size: 3rem;
+    display: block;
   }
 }
 
 // SELECTED WORKS
-
-.works-modal {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s;
-  z-index: 99999;
-
-  p {
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 2.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  &.works-active {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .img-modal {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-
-    img {
-      position: absolute;
-      display: none;
-      width: 100%;
-    }
-
-    .img-active {
-      display: flex;
-    }
-  }
-}
 
 .bb-gray {
   width: 100%;
@@ -236,9 +213,17 @@
 }
 
 .anima-scroll {
+  transition: opacity 0.4s ease, left 0.4s ease;
+}
+
+.js .anima-scroll {
   left: -200px;
   opacity: 0;
-  transition: 0.3s ease;
+}
+
+.js .anima-scroll.animate {
+  left: 0;
+  opacity: 1;
 }
 
 .projects {
@@ -265,20 +250,110 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px 24px;
+}
+
+.get-lead {
+  max-width: 48ch;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba($white-normal, 0.75);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-email {
+  // A long address is one unbreakable token: left at a fixed 40px it overflows
+  // narrow screens, which widens the containing block and throws every
+  // position: fixed element (the menu button) off-screen.
+  font-size: clamp(22px, 6vw, 40px);
+  line-height: 110%;
+
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-bottom-color: $blue-normal;
+  }
+}
+
+.copy-email {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  color: $white-normal;
+
+  padding: 10px 20px;
+  min-height: 44px;
+
+  background: transparent;
+  border: 1px solid rgba($white-normal, 0.25);
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    border-color: $blue-normal;
+    color: $blue-light;
+  }
+}
+
+.copy-feedback {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  color: $blue-normal;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+.site-footer {
+  max-width: 1200px;
+  margin: 96px auto 0;
+  padding: 32px 24px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  border-top: 1px solid $black-light;
+
+  p {
+    color: rgba($white-normal, 0.6);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  // Keep the links clear of the fixed back-to-top button.
+  @media screen and (min-width: 961px) {
+    padding-right: 104px;
+  }
 
   a {
-    display: none;
-  }
+    color: rgba($white-normal, 0.6);
+    transition: color 0.3s ease;
 
-  img {
-    width: 40px;
-  }
-
-  .to-top {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    font-size: 3rem;
+    &:hover {
+      color: $white-normal;
+    }
   }
 }
 
@@ -324,12 +399,22 @@
 }
 
 .animate {
-  opacity: 1;
-  left: 0;
-
-  a {
+  .to-top-link {
     display: block;
   }
+}
+
+// Without JS the back-to-top anchor still works, so show it.
+html:not(.js) .to-top-link {
+  display: block;
+}
+
+// FOCUS
+
+:focus-visible {
+  outline: 2px solid $blue-light;
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -372,11 +457,26 @@
     transform: scale(2);
   }
 
+  .bg-hero {
+    top: -150px;
+  }
+
+  .stop0 {
+    stop-color: #000000;
+  }
+
+  .stop1 {
+    stop-color: #000000;
+    stop-opacity: 1;
+  }
+
   .img-project {
     max-width: 0;
   }
 
-  .to-top {
+  // Splitting the link from its icon raised the specificity on the desktop
+  // rule, so hide the link itself to keep the original mobile behaviour.
+  .about-content .to-top-link {
     display: none;
   }
 
@@ -387,8 +487,9 @@
   }
 
   .menu {
-    position: absolute;
-    left: -300px;
+    position: fixed;
+    transform: translateY(-100%);
+    right: 0;
     width: 300px;
     display: flex;
     align-items: center;
@@ -399,34 +500,34 @@
     transition: 0.3s ease;
 
     &.active {
-      left: 0;
+      transform: translateY(0);
     }
   }
 
   .menu-mobile {
     display: flex;
-    background: #222;
+    background: transparent;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 1.5rem 1rem;
     border-radius: 4px 4px 0 0;
     text-transform: uppercase;
     font-family: "IBM Plex Mono", monospace;
     font-weight: bold;
     color: #fff;
     cursor: pointer;
-    margin: 16px 0 0 8px;
     align-items: center;
-    position: relative;
-    z-index: 300;
+    position: fixed;
+    right: 0;
+    z-index: 3000;
 
     &::before {
-      margin-right: 4px;
+      margin-right: 6px;
       content: "";
       display: inline-block;
       height: 2px;
-      width: 12px;
+      width: 20px;
       background: #fff;
-      box-shadow: 0 4px #fff, 0 -4px #fff;
+      box-shadow: 0 6px #fff, 0 -6px #fff;
       transition: transform 0.3s;
     }
   }
@@ -454,5 +555,30 @@
 
   .container {
     flex-direction: column;
+  }
+}
+
+// REDUCED MOTION
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .anima-scroll,
+  .js .anima-scroll.animate {
+    left: 0;
+    opacity: 1;
+  }
+
+  #bg-heroline1,
+  #bg-heroline2,
+  #bg-heroline3 {
+    animation: none;
   }
 }

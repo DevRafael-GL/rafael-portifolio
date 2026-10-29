@@ -1,37 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfólio de Rafael Gonçalves - Fullstack Developer especializado em React, TypeScript, .NET e SQL Server.">
+    <meta name="description" content="Rafael Gonçalves — Fullstack Developer specialized in React, TypeScript, .NET and SQL Server. See selected works and get in touch.">
     <meta name="keywords" content="Fullstack Developer, React, TypeScript, .NET, SQL, Rafael Gonçalves">
     <meta name="author" content="Rafael Gonçalves">
 
+    <link rel="canonical" href="https://rafaelgoncalves.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rafaelgoncalves.vercel.app/" />
+    <meta property="og:title" content="Rafael Gonçalves — Fullstack Developer" />
+    <meta property="og:description" content="Fullstack Developer specialized in React, TypeScript, .NET and SQL Server. See selected works and get in touch." />
+    <meta property="og:image" content="https://rafaelgoncalves.vercel.app/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rafael Gonçalves — Fullstack Developer" />
+    <meta name="twitter:description" content="Fullstack Developer specialized in React, TypeScript, .NET and SQL Server. See selected works and get in touch." />
+    <meta name="twitter:image" content="https://rafaelgoncalves.vercel.app/img/og-image.jpg" />
+
+    <meta name="theme-color" content="#050607" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/png" href="/img/favicon-r.svg">
+    <link rel="icon" type="image/svg+xml" href="img/favicon-r.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Portifólio</title>
+    <title>Rafael Gonçalves — Fullstack Developer</title>
+
+    <script>
+      // Marks that JS is alive, so the CSS only hides content it can reveal again.
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
     <!-- HEADER -->
     <div id="top"></div>
     <header class="header-menu">
-      <button class="menu-mobile"></button>
-      <div class="menu">
+      <button
+        class="menu-mobile"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="primary-menu"
+      ></button>
+      <div class="menu" id="primary-menu">
         <div class="menu-left">
           <a href="#top" class="link scroll-suave menu-1">Home</a>
           <a href="#section-01" class="link scroll-suave menu-2">About</a>
         </div>
         <div class="menu-logo">
-          <h5 class="menu-3">
-            <img class="img-logo" src="/img/favicon-r.svg" alt="logo" />
-          </h5>
+          <a href="#top" class="scroll-suave menu-3" aria-label="Back to top">
+            <img class="img-logo" src="img/favicon-r.svg" alt="" width="35" height="36" />
+          </a>
         </div>
         <div class="menu-right">
           <a href="#section-02" class="link scroll-suave menu-4">Works</a>
@@ -205,7 +234,7 @@
           <h1>Rafael Gonçalves</h1>
         </div>
         <div>
-          <h2 class="mask mt-3">Web Developer</h2>
+          <p class="mask mt-3 t-h2">Web Developer</p>
         </div>
 
         <div class="mt-2 pl-2">
@@ -213,7 +242,14 @@
         </div>
       </div>
       <div class="container-item">
-        <img src="/img/Eu.png" alt="Imagem de layout" />
+        <img
+          src="img/eu.webp"
+          alt="Portrait of Rafael Gonçalves"
+          width="800"
+          height="1190"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
     </section>
 
@@ -223,43 +259,61 @@
         <div class="main-about">
           <div class="left">
             <div class="avatar">
-              <img src="/img/Foto-1.jpeg" alt="Foto de perfil" />
+              <img
+                src="img/avatar.webp"
+                alt="Rafael Gonçalves"
+                width="320"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
-            <h5 class="ml-1">Rafael Gonçalves</h5>
+            <p class="ml-1 t-h5">Rafael Gonçalves</p>
 
             <div class="social-icons ml-1 mt-3">
-              <a href="https://github.com/DevRafael-GL" target="_blank">
-                <img src="/svg/github.svg" alt="Link github" />
+              <a
+                href="https://github.com/DevRafael-GL"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub profile (opens in a new tab)"
+              >
+                <img src="svg/github.svg" alt="" width="40" height="40" />
               </a>
               <a
                 href="https://www.linkedin.com/in/rafael-goncalves-lima/"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile (opens in a new tab)"
               >
-                <img src="/svg/linkedin.svg" alt="link linkedin" />
+                <img src="svg/linkedin.svg" alt="" width="40" height="40" />
               </a>
             </div>
           </div>
           <div class="right">
             <div class="descripition">
-              <h4 class="mb-3">About me</h4>
-              <h6 class="mb-3">
+              <h3 class="mb-3 t-h4">About me</h3>
+              <p class="bio mb-3">
                 Hi, I’m Rafael, a Fullstack Developer passionate about crafting efficient and scalable web applications.
                 My journey in programming started in 2019, and since then, I’ve been constantly learning and improving my skills in frontend and backend development.
                 I enjoy solving problems, optimizing performance, and delivering high-quality user experiences.
-              </h6>
-              <h4 class="mb-3">Skills and Competences</h4>
-              <div class="ml-1">
-                <p><span class="mr-1">•</span><strong>Frontend:</strong> React, TypeScript, HTML5, CSS3, Styled Components</p>
-                <p><span class="mr-1">•</span><strong>Backend:</strong> C#, .NET, Entity Framework, SQL Server</p>
-                <p><span class="mr-1">•</span><strong>Other:</strong> Git, API Development, Responsive Design</p>
-              </div>
+              </p>
+              <h3 class="mb-3 t-h4">Skills and Competences</h3>
+              <ul class="skills-list ml-1">
+                <li><span class="mr-1">•</span><strong>Frontend:</strong> React, TypeScript, HTML5, CSS3, Styled Components</li>
+                <li><span class="mr-1">•</span><strong>Backend:</strong> C#, .NET, Entity Framework, SQL Server</li>
+                <li><span class="mr-1">•</span><strong>Other:</strong> Git, API Development, Responsive Design</li>
+              </ul>
             </div>
           </div>
 
-          <a href="#top" class="scroll-suave to-top">
-            <img class="to-top" href="#top" src="/svg/top.svg" alt=""
-          /></a>
+          <a
+            href="#top"
+            class="scroll-suave to-top-link"
+            aria-label="Back to top"
+          >
+            <img class="to-top" src="svg/top.svg" alt="" width="40" height="40" />
+          </a>
         </div>
       </div>
     </section>
@@ -272,69 +326,116 @@
       </div>
 
       <div class="list-item anima-scroll projects py-6">
-        <h5 class="color-gray mr-1">01.</h5>
-        <a class="link-works happy" target="_blank" href="https://weather-analytics.vercel.app">
+        <span class="t-h5 color-gray mr-1" aria-hidden="true">01.</span>
+        <a
+          class="link-works happy"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://weather-analytics.vercel.app"
+        >
           <h3>Weather Analytics</h3>
         </a>
         <img
           class="img-project"
-          src="/img/weather-analytics.png"
-          alt="weather analytics"
+          src="img/weather-analytics.webp"
+          alt=""
+          width="1440"
+          height="743"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
       <div class="bb-gray"></div>
 
       <div class="list-item anima-scroll projects py-6">
-        <h5 class="color-gray mr-1">02.</h5>
-        <a class="link-works podcastr" target="_blank" href="/">
+        <span class="t-h5 color-gray mr-1" aria-hidden="true">02.</span>
+        <a
+          class="link-works podcastr"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/"
+        >
           <h3>Podcastr</h3>
         </a>
         <img
           class="img-project"
-          src="/img/podcastr-project.jpg"
-          alt="podcastr"
+          src="img/podcastr.webp"
+          alt=""
+          width="1280"
+          height="720"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
       <div class="bb-gray"></div>
 
       <div class="list-item anima-scroll projects py-6">
-        <h5 class="color-gray mr-1">03.</h5>
-        <a class="link-works spider" target="_blank" href="https://marvelprojectdev.vercel.app">
+        <span class="t-h5 color-gray mr-1" aria-hidden="true">03.</span>
+        <a
+          class="link-works spider"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://marvelprojectdev.vercel.app"
+        >
           <h3>Marvel App</h3>
         </a>
-        <img class="img-project" src="/img/Marvel-app.png" alt="spider man" />
+        <img
+          class="img-project"
+          src="img/marvel-app.webp"
+          alt=""
+          width="1440"
+          height="743"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </section>
-
-    <!-- <section class="works-modal">
-      <p class="close">x</p>
-      <div class="img-modal">
-        <img id="spider-man" class="remove-class" src="/img/spider-man-project.jpeg" alt="" />
-        <img id="podcastr" class="remove-class" src="/img/podcastr-project.jpg" alt="" />
-        <img id="happy" class="remove-class" src="/img/happy-project.png" alt="" />
-      </div>
-    </section> -->
 
     <section class="get anima-scroll mt-9" id="section-03">
       <h2>Get in touch</h2>
-      <h3 class="mt-5 mb-7 mask text-center">rafaelgonsalveslima@gmail.com</h3>
+
+      <div class="contact-actions mt-5 mb-7">
+        <a class="contact-email mask" href="mailto:rafaelgonsalveslima@gmail.com">
+          rafaelgonsalveslima@gmail.com
+        </a>
+        <button
+          class="copy-email"
+          type="button"
+          data-email="rafaelgonsalveslima@gmail.com"
+        >
+          Copy
+        </button>
+        <span class="copy-feedback" role="status" aria-live="polite"></span>
+      </div>
     </section>
+
+    <footer class="site-footer">
+      <p>© <span data-year>2026</span> Rafael Gonçalves</p>
+      <div class="footer-links">
+        <a
+          href="https://github.com/DevRafael-GL"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/rafael-goncalves-lima/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"
       integrity="sha512-2fk3Q4NXPYAqIha0glLZ2nluueK43aNoxvijPf53+DgL7UW9mkN+uXc1aEmnZdkkZVvtJZltpRt+JqTWc3TS3Q=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      defer
     ></script>
-    <!-- <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"
-      integrity="sha512-jNJOCd1PIjJoUa1XTDKaPdBLNUe4OJTrltKG+70O5ghYZ943nTRGIzjObwC2JtSm1fG7T06GbUApR2eirIU/jA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script> -->
-
-    <script src="/js/script.js"></script>
+    <script src="js/script.js" defer></script>
   </body>
 </html>

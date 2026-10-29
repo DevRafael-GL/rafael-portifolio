@@ -1,11 +1,13 @@
+@use "sass/colors" as *;
+@use "sass/typography";
+@use "sass/spacing";
+@use "sass/layout";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-@import "sass/colors";
-@import "sass/typography";
 
 body {
   width: 100%;
@@ -13,6 +15,3 @@ body {
   background: $black-dark;
   overflow-x: hidden;
 }
-
-@import "sass/spacing";
-@import "sass/layout";

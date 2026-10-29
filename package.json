@@ -1,0 +1,14 @@
+{
+  "name": "rafael-portifolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Rafael Goncalves - Fullstack Developer",
+  "private": true,
+  "scripts": {
+    "build": "sass css/style.scss css/style.css --style=expanded",
+    "watch": "sass --watch css/style.scss css/style.css --style=expanded",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "sass": "^1.83.4"
+  }
+}

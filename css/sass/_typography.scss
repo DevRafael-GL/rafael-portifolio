@@ -1,3 +1,5 @@
+@use "colors" as *;
+
 h1,
 h2,
 h3,
@@ -5,6 +7,8 @@ h4,
 h5,
 h6,
 p,
+li,
+span,
 a {
   font-family: "Barlow Condensed", sans-serif;
   color: $white-normal;
@@ -17,7 +21,7 @@ a {
 
 .link {
   position: relative;
-  padding: 8px 24px;
+  padding: 8px 0;
   font-size: 24px;
 
   display: inline-block;
@@ -54,7 +58,8 @@ h1 {
   line-height: 100%;
 }
 
-h2 {
+h2,
+.t-h2 {
   font-size: 72px;
   line-height: 110%;
 }
@@ -69,7 +74,8 @@ h3 {
     font-size: 64px;
   }
 
-  h2 {
+  h2,
+  .t-h2 {
     font-size: 48px;
   }
 }
@@ -80,12 +86,14 @@ h3 {
   }
 }
 
-h4 {
+h4,
+.t-h4 {
   font-size: 32px;
   line-height: 120%;
 }
 
-h5 {
+h5,
+.t-h5 {
   font-size: 24px;
   line-height: 130%;
 }
@@ -134,5 +142,22 @@ h6 {
     &::after {
       transform: translate(0%, -15%) rotate(180deg);
     }
+  }
+}
+
+// BODY COPY
+
+.bio {
+  font-size: 20px;
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+.skills-list {
+  list-style: none;
+
+  li {
+    font-size: 18px;
+    line-height: 1.6;
   }
 }
